@@ -50,17 +50,14 @@ module.exports = {
         });
       }
 
-      const item = await Item.findOneAndUpdate(
-        {
+      let item = await Item.findOne({ name });
+
+      if (!item) {
+        item = await Item.create({
           name,
           category_id: mongoose.Types.ObjectId(categoryId),
-        },
-        {},
-        {
-          upset: true,
-          new: true,
-        },
-      );
+        });
+      }
 
       return res.status(201).json({
         success: true,

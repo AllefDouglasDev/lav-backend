@@ -1,5 +1,6 @@
 const { verifyJWT } = require('../config/jwt');
 const categoryController = require('./controllers/categoryController');
+const categoryItemController = require('./controllers/categoryItemController');
 
 module.exports = (app) => {
   app.get('/', categoryController.index);
@@ -7,4 +8,6 @@ module.exports = (app) => {
   app.post('/', categoryController.store);
   app.put('/:_id', categoryController.update);
   app.delete('/:_id', categoryController.destroy);
+
+  app.get('/:_id/items', categoryItemController.index);
 };
