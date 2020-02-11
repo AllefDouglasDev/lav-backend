@@ -12,7 +12,7 @@
 
 # Start
 
-  - run ``` yarn ``` to install all dependencies
+  - run ``` yarn ``` to install all dependencies inside each microservice folder
   - initialize rabbitmq server on docker
     ```
     docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
