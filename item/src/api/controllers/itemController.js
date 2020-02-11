@@ -3,8 +3,12 @@ const Item = require('../../schemas/item');
 
 module.exports = {
   async index(req, res) {
+    const { category_id } = req.query;
     try {
-      const items = await Item.find({});
+
+      const items = category_id 
+        ? await Item.find({ category_id }) 
+        : await Item.find({});
 
       return res.json({
         success: true,
@@ -13,8 +17,8 @@ module.exports = {
     } catch (error) {
       return res.status(500).json({
         success: false,
-        error,
-        message: 'Erro no servidor',
+        error: 'invalid_params',
+        message: 'Parâmetros inválidos',
       });
     }
   },
