@@ -2,30 +2,15 @@ require("dotenv-safe").config();
 
 const http = require('http');
 const express = require('express');
-const httpProxy = require('express-http-proxy');
 const app = express();
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const helmet = require('helmet');
 
 const ip = require('./ip');
+const proxy = require('./proxy');
 
-const userServiceProxy = httpProxy('http://localhost:3001');
-const categoriesServiceProxy = httpProxy('http://localhost:3002');
-const itemsServiceProxy = httpProxy('http://localhost:3003');
-
-// Proxy request
-app.use('/users', (req, res, next) => {
-  userServiceProxy(req, res, next);
-});
-
-app.use('/categories', (req, res, next) => {
-  categoriesServiceProxy(req, res, next);
-});
-
-app.use('/items', (req, res, next) => {
-  itemsServiceProxy(req, res, next);
-});
+proxy(app);
 
 app.use(logger('dev'));
 app.use(helmet());
