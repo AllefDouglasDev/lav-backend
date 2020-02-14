@@ -1,14 +1,14 @@
 # To Do
 
- [] Cadastrar user
- [] Login
- [] Cadastrar address
- [] Listar categories
- [] Listar items de uma category
- [] Cadastrar items na basket
- [] Criar order
- [] Processar payment
- [] Atualizar order após payment "aprovado"
+ - [] Cadastrar user
+ - [] Login
+ - [] Cadastrar address
+ - [] Listar categories
+ - [] Listar items de uma category
+ - [] Cadastrar items na basket
+ - [] Criar order
+ - [] Processar payment
+ - [] Atualizar order após payment "aprovado"
 
 # Complete CRUD
 
