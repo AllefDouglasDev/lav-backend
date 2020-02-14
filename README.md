@@ -11,6 +11,22 @@
  - [ ] Criar order
  - [ ] Processar payment
  - [ ] Atualizar order após payment "aprovado"
+ 
+# Descrição
+
+   - Implementação dos microserviços que compõem o sistema Lav, tema do TCC da Pós Graduação em Arquitetura de Software Distribuído na IGTI.
+
+   - Implementation of the microservices that make up the Lav system, theme of the Postgraduate Course in Distributed Software Architecture at IGTI.
+
+# Dependências
+
+  - Node JS ^12.0.0 
+  - MongoDB
+  - RabbitMQ
+
+  - Todas as depêndencias podem ser containers docker. Utilizo apenas o RabbitMQ no docker, porém as nada impede de utilizar para as demais dependências. No desenvolvimento, foi utilizado MongoDB Cloud no http://www.mlab.com.
+
+  - All dependencies can be docker containers. I only use RabbitMQ in the docker, but nothing prevents them from being used for other dependencies. In the development, MongoDB Cloud was used at http://www.mlab.com.
 
 # Start
 
