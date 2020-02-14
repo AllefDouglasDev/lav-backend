@@ -62,10 +62,10 @@ module.exports = {
   },
 
   async show(req, res) {
-    const { id } = req.params;
+    const { _id } = req.params;
 
     try {
-      const user = await User.findOne({ _id: id });
+      const user = await User.findOne({ _id });
 
       user.password = undefined;
 
@@ -78,4 +78,50 @@ module.exports = {
       });
     }
   },
+
+  async update(req, res) {
+    const { _id } = req.params;
+    const { name, phone, email, password, type, address_id } = req.body;
+
+    if (!name || !phone || !email || !password || !type) {
+      return res.status(400).json({
+        error: 'incomplet_fields',
+        message: 'Campos obrigatórios incompletos',
+        success: false,
+      });
+    }
+
+    try {
+      let data = { name, phone, email, password, type };
+
+      if (address_id) {
+        data.address_id = address_id;
+      }
+
+      const user = await User.findOneAndUpdate(
+        { _id },
+        data,
+        { new: true },
+      );
+
+      if (!user) {
+        return res.status(404).json({
+          error: 'user_not_found',
+          message: 'Usuário não encontrado',
+          success: false,
+        });
+      }
+
+      return res.status(200).json({
+        success: true,
+        user,
+      });
+    } catch (error) {
+      return res.status(404).json({
+        error: 'invalid_address_id',
+        message: 'ID de endereço inválido',
+        success: false,
+      });
+    }
+  }
 };

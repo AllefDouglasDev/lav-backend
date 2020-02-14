@@ -6,6 +6,7 @@ const User = new mongoose.Schema({
   email: String,
   password: String,
   type: String,
+  address_id: mongoose.Types.ObjectId
 });
 
 module.exports = mongoose.model('User', User);
