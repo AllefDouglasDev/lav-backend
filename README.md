@@ -12,18 +12,6 @@
  - [ ] Processar payment
  - [ ] Atualizar order após payment "aprovado"
 
-# Complete CRUD
-
- - User
- - Category
- - Item
-
-# Incomplete CRUD
- 
- - Address
- - Order
- - Notification
-
 # Start
 
   - run ``` yarn ``` to install all dependencies inside each microservice folder
