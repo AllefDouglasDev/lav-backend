@@ -2,10 +2,12 @@
 
  - [x] Cadastrar user
  - [x] Login
- - [ ] Cadastrar address
+ - [x] Cadastrar address
  - [x] Listar categories
  - [x] Listar items de uma category
- - [ ] Cadastrar items na basket
+ - [x] Cadastrar items na basket
+ - [x] Adicionar order na basket
+ - [x] Listar items da basket
  - [ ] Criar order
  - [ ] Processar payment
  - [ ] Atualizar order após payment "aprovado"
@@ -34,3 +36,14 @@
   - run ``` yarn dev ``` to start api gateway
 
   The aplication will run on http://localhost:3000
+
+# Microservices ports
+
+  - Api Gateway: 3000
+  - User: 3001
+  - Category: 3002
+  - Item: 3003
+  - Order: 3004
+  - Notification: 3005
+  - Address: 3006
+  - Basket: 3007
