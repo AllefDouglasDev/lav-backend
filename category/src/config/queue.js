@@ -1,7 +1,7 @@
 module.exports = {
   connect() {
     return require('amqplib')
-      .connect("amqp://localhost")
+      .connect(process.env.RABBITMQ_URL)
       .then(conn => conn.createChannel());
   },
 
