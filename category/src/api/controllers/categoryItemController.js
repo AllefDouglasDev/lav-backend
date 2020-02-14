@@ -1,6 +1,5 @@
 const Category = require('../../schemas/category');
-const Queue = require('../../config/queue');
-const axios = require('axios');
+const ItemService = require('../services/item');
 
 module.exports = {
   async index(req, res) {
@@ -17,8 +16,7 @@ module.exports = {
         });
       }
 
-      Queue.sendToQueue('get:items', { category_id: _id });
-      const { data: { items }} = await axios.get('http://localhost:3000/items?category_id='+_id);
+      const { data: { items }} = await ItemService.getItemsByCategoryId(_id);
 
       return res.json({
         success: true,
@@ -34,21 +32,5 @@ module.exports = {
         desc: error,
       });
     }
-  },
-  
-  async show(req, res) {
-
-  },
-  
-  async store(req, res) {
-
-  },
-  
-  async update(req, res) {
- 
-  },
-  
-  async destroy(req, res) {
-
   },
 };
