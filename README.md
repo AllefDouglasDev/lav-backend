@@ -53,3 +53,4 @@
   - Notification: 3005
   - Address: 3006
   - Basket: 3007
+  - Payment: 3008
