@@ -12,13 +12,13 @@
  - [ ] Processar payment
  - [ ] Atualizar order após payment "aprovado"
  
-# Descrição
+# Descrição - Description
 
    - Implementação dos microserviços que compõem o sistema Lav, tema do TCC da Pós Graduação em Arquitetura de Software Distribuído na IGTI.
 
    - Implementation of the microservices that make up the Lav system, theme of the Postgraduate Course in Distributed Software Architecture at IGTI.
 
-# Dependências
+# Dependências - Dependencies
 
   - Node JS ^12.0.0 
   - MongoDB
