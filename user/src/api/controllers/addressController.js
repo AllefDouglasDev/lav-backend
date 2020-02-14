@@ -5,7 +5,7 @@ module.exports = {
   async show(req, res) {
     const { _id } = req.params;
     try {
-      const user = await User.findOne({ _id });
+      let user = await User.findOne({ _id });
 
       if (!user) {
         return res.json({
@@ -16,16 +16,21 @@ module.exports = {
       }
 
       const { data: { address } } = await AddressService.getAddressById(user.address_id);
-      
+
+      user.password = undefined;
+      user.address_id = undefined;
+      user = user.toJSON();
+      user.address = address;
+
       res.json({
         success: true,
-        address,
+        user,
       });
     } catch (error) {
       return res.json({
         success: false,
-        error: 'user_not_found',
-        message: 'Usuário não encontrado',
+        error: 'address_not_found',
+        message: 'Endereço de usuário encontrado',
       });
     }
   }

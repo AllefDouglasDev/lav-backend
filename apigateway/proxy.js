@@ -4,6 +4,7 @@ module.exports = (app) => {
   const userServiceProxy = httpProxy('http://localhost:3001');
   const categoriesServiceProxy = httpProxy('http://localhost:3002');
   const itemsServiceProxy = httpProxy('http://localhost:3003');
+  const orderServiceProxy = httpProxy('http://localhost:3004');
   const addressServiceProxy = httpProxy('http://localhost:3006');
   const basketServiceProxy = httpProxy('http://localhost:3007');
 
@@ -26,5 +27,9 @@ module.exports = (app) => {
 
   app.use('/baskets', (req, res, next) => {
     basketServiceProxy(req, res, next);
+  });
+
+  app.use('/orders', (req, res, next) => {
+    orderServiceProxy(req, res, next);
   });
 }

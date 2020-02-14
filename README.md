@@ -8,7 +8,7 @@
  - [x] Cadastrar items na basket
  - [x] Adicionar order na basket
  - [x] Listar items da basket
- - [ ] Criar order
+ - [x] Criar order
  - [ ] Processar payment
  - [ ] Atualizar order após payment "aprovado"
  
