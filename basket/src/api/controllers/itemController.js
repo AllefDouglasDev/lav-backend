@@ -6,7 +6,7 @@ module.exports = {
     const { _id } = req.params;
 
     try {
-      const basket = await Basket.findOne({ _id });
+      let basket = await Basket.findOne({ _id });
 
       if (!basket) {
         return res.status(409).json({ 
@@ -19,19 +19,17 @@ module.exports = {
       let items = [];
 
       for (let i = 0; i < basket.items.length; i++) {
-        const itemId = basket.items[i];
-        const { data } = await ItemService.getItemById(itemId);
-
-        items.push(data.item);
+        const currentItem = basket.items[i];
+        const { data } = await ItemService.getItemById(currentItem.id);
+        items.push({ ...data.item, amount: currentItem.amount });
       }
+
+      basket = basket.toJSON();
+      basket.items = items;
 
       return res.status(200).json({
         success: true,
-        basket: { 
-          _id: basket._id,
-          user_id: basket.user_id,
-          items,
-        },
+        basket,
       });
     } catch (error) {
       return res.status(409).json({ 
