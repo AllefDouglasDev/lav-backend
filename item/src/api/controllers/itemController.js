@@ -44,9 +44,9 @@ module.exports = {
 
   async store(req, res) {
     try {
-      const { name, categoryId } = req.body;
+      const { name, categoryId, price } = req.body;
 
-      if (!name || !categoryId) {
+      if (!name || !categoryId || !price) {
         return res.status(400).json({
           success: false,
           error: 'incomplete_fields',
@@ -60,6 +60,7 @@ module.exports = {
         item = await Item.create({
           name,
           category_id: mongoose.Types.ObjectId(categoryId),
+          price,
         });
       }
 
@@ -78,10 +79,10 @@ module.exports = {
   
   async update(req, res) {
     try {
-      const { name, categoryId } = req.body;
+      const { name, categoryId, price } = req.body;
       const { _id } = req.params;
 
-      if (!name || !categoryId) {
+      if (!name || !categoryId || !price) {
         return res.status(400).json({
           success: false,
           error: 'incomplete_fields',
@@ -94,6 +95,7 @@ module.exports = {
         {
           name,
           category_id: mongoose.Types.ObjectId(categoryId),
+          price
         },
         {
           new: true,

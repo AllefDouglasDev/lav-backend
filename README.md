@@ -8,7 +8,9 @@
  - [x] Cadastrar items na basket
  - [x] Adicionar order na basket
  - [x] Listar items da basket
+ - [x] Listar service providers
  - [x] Criar order
+ - [ ] Calcular o valor da order por service provider
  - [ ] Processar payment
  - [ ] Atualizar order após payment "aprovado"
  
